@@ -3,10 +3,11 @@ import { Restaurant } from './restaurant.model';
 
 @Component({
   selector: 'restaurant-display',
-  inputs: ['restaurant'],
+  inputs: ['restaurant', 'selected'],
   template: `
   <div>
-  <label>{{ restaurant.name }} | {{ restaurant.specialty}} | {{ restaurant.address }} | {{ restaurant.cost }}</label>
+  <label>{{ restaurant.name }}</label>
+  <label *ngIf="selected">| {{ restaurant.specialty}} | {{ restaurant.address }} | {{ restaurant.cost }}</label>
   </div>
   `
 })
