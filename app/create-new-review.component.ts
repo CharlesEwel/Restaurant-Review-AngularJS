@@ -6,7 +6,7 @@ import { Review } from './review.model.ts';
   inputs: ['review'],
   outputs: ['onSubmitNewReview'],
   template:`
-    <div>
+    <div class="new-review">
     <h3>Upload Review:</h3>
     <input type="number" placeholder="Rating" class="col-sm-8 input-lg" #newRating>
     <input type="number" placeholder="WaitTime" class="col-sm-8 input-lg" #newWaitTime>

@@ -12,6 +12,7 @@ import { RestaurantIdPipe } from './restaurantId.pipe';
   template: `
   <h1>Reviews of {{restaurant.name}}</h1>
   <h4>Average Rating: {{calculateAverageRating(restaurant)}} </h4>
+  <h4>Average Wait Time: {{calculateAverageWaiting(restaurant)}} </h4>
   <review-display *ngFor="#currentReview of reviewList | restaurantId:restaurant.id"
   [review]="currentReview">
   </review-display>
@@ -38,9 +39,25 @@ export class ReviewListComponent {
       }
     });
     if(numberOfReviews>0){
-      return sum/numberOfReviews
+      return (sum/numberOfReviews).toString()
     } else {
-      return 0
+      return "N/A"
+    }
+  }
+  calculateAverageWaiting(restaurant){
+    var numberOfReviews: number = 0;
+    var sum: number = 0;
+    this.reviewList.forEach(function(review) {
+      var waitTime: number = review.waitTime;
+      if(review.restaurantId===restaurant.id) {
+        sum = sum + waitTime;
+        numberOfReviews++;
+      }
+    });
+    if(numberOfReviews>0){
+      return (sum/numberOfReviews).toString()
+    } else {
+      return "N/A"
     }
   }
 }

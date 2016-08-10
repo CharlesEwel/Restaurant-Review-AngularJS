@@ -13,7 +13,8 @@ import { ReviewListComponent} from './review-list.component';
   directives: [RestaurantComponent, NewRestaurantComponent, EditRestaurantComponent, NewSpecialtyComponent, ReviewListComponent],
   pipes: [SpecialtyPipe],
   template: `
-  <select (change)="onSpecialtyChange($event.target.value)" class="filter input-lg">
+  <div class ="restaurant-list">
+  <select (change)="onSpecialtyChange($event.target.value)" class="filter input-lg show-all">
     <option value="all" selected="selected">Show All</option>
     <option *ngFor="#currentSpecialty of specialtyList">{{currentSpecialty}}</option>
   </select>
@@ -30,6 +31,7 @@ import { ReviewListComponent} from './review-list.component';
   </edit-restaurant>
   <review-list *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant">
   </review-list>
+  </div>
   `
 })
 
