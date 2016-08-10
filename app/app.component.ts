@@ -10,7 +10,6 @@ import { RestaurantListComponent } from './restaurant-list.component';
     <h1>Restaurant Review</h1>
     <restaurant-list [restaurantList]= "restaurants">
     </restaurant-list>
-
   `
 })
 

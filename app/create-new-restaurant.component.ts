@@ -3,12 +3,15 @@ import { Restaurant } from './restaurant.model.ts';
 
 @Component({
   selector: 'create-new-restaurant',
+  inputs: ['specialtyList'],
   outputs: ['onSubmitNewRestaurant'],
   template:`
     <div>
     <h3>Upload Restaurant:</h3>
     <input placeholder="Name" class="col-sm-8 input-lg" #newName>
-    <input placeholder="Specialty" class="col-sm-8 input-lg" #newSpecialty>
+    <select #newSpecialty>
+      <option *ngFor="#currentSpecialty of specialtyList">{{currentSpecialty}}</option>
+    </select>
     <input placeholder="Address" class="col-sm-8 input-lg" #newAddress>
     <input placeholder="Cost" class="col-sm-8 input-lg" #newCost>
     <button (click)="addRestaurant(newName, newSpecialty, newAddress, newCost)" class="add-button btn-lg">Add</button>
@@ -18,6 +21,7 @@ import { Restaurant } from './restaurant.model.ts';
 
 export class NewRestaurantComponent {
   public onSubmitNewRestaurant: EventEmitter<string[]>;
+  public specialtyList: string[];
   constructor() {
     this.onSubmitNewRestaurant = new EventEmitter();
   }
