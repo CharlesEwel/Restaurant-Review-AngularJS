@@ -22,13 +22,17 @@ export class NewReviewComponent {
     this.onSubmitNewReview = new EventEmitter();
   }
   addReview(userRating: HTMLInputElement, userWaitTime: HTMLInputElement, userContent: HTMLInputElement){
-    var emission = [];
-    emission.push(userRating.value);
-    emission.push(userWaitTime.value);
-    emission.push(userContent.value);
-    this.onSubmitNewReview.emit(emission);
-    userRating.value = "";
-    userWaitTime.value = "";
-    userContent.value = "";
+    if(userRating.value==="" || userWaitTime.value==="") {
+      alert("One of rating and/or wait time was left blank")
+    } else {
+      var emission = [];
+      emission.push(userRating.value);
+      emission.push(userWaitTime.value);
+      emission.push(userContent.value);
+      this.onSubmitNewReview.emit(emission);
+      userRating.value = "";
+      userWaitTime.value = "";
+      userContent.value = "";
+    }
   }
 }

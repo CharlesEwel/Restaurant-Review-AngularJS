@@ -16,9 +16,13 @@ export class NewSpecialtyComponent {
     this.onSubmitNewSpecialty = new EventEmitter();
   }
   addSpecialty(userSpecialty: HTMLInputElement){
-    var emission = [];
-    emission.push(userSpecialty.value);
-    this.onSubmitNewSpecialty.emit(emission);
-    userSpecialty.value = "";
+    if(userSpecialty.value==="") {
+      alert("You need to enter a specialty")
+    } else {
+      var emission = [];
+      emission.push(userSpecialty.value);
+      this.onSubmitNewSpecialty.emit(emission);
+      userSpecialty.value = "";
+    }
   }
 }

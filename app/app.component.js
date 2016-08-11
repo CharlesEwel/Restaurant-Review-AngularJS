@@ -37,7 +37,7 @@ System.register(['angular2/core', './restaurant.model', './restaurant-list.compo
                     core_1.Component({
                         selector: 'my-app',
                         directives: [restaurant_list_component_1.RestaurantListComponent],
-                        template: "\n    <div class=\"header\">\n    <h1>Restaurant Reviews</h1>\n    <img src=\"resources/styles/images/burger.png\" alt=\"burger\">\n    </div>\n    <restaurant-list [restaurantList]= \"restaurants\">\n    </restaurant-list>\n  "
+                        template: "\n    <div class=\"header\">\n    <h1>Restaurant Reviews</h1>\n    </div>\n    <restaurant-list [restaurantList]= \"restaurants\">\n    </restaurant-list>\n  "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

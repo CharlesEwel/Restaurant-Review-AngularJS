@@ -26,15 +26,19 @@ export class NewRestaurantComponent {
     this.onSubmitNewRestaurant = new EventEmitter();
   }
   addRestaurant(userName: HTMLInputElement, userSpecialty: HTMLInputElement, userAddress: HTMLInputElement, userCost: HTMLInputElement){
-    var emission = [];
-    emission.push(userName.value);
-    emission.push(userSpecialty.value);
-    emission.push(userAddress.value);
-    emission.push(userCost.value);
-    this.onSubmitNewRestaurant.emit(emission);
-    userName.value = "";
-    userSpecialty.value = "";
-    userAddress.value = "";
-    userCost.value = "";
+    if(userName.value==="" ||  userAddress.value==="" || userCost.value==="") {
+      alert("One of name, address and/or price was left blank")
+    } else {
+      var emission = [];
+      emission.push(userName.value);
+      emission.push(userSpecialty.value);
+      emission.push(userAddress.value);
+      emission.push(userCost.value);
+      this.onSubmitNewRestaurant.emit(emission);
+      userName.value = "";
+      userSpecialty.value = "";
+      userAddress.value = "";
+      userCost.value = "";
+    }
   }
 }
