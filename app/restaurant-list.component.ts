@@ -13,24 +13,34 @@ import { ReviewListComponent} from './review-list.component';
   directives: [RestaurantComponent, NewRestaurantComponent, EditRestaurantComponent, NewSpecialtyComponent, ReviewListComponent],
   pipes: [SpecialtyPipe],
   template: `
-  <div class ="restaurant-list">
+  <div class="select-rest">
   <select (change)="onSpecialtyChange($event.target.value)" class="filter input-lg show-all">
     <option value="all" selected="selected">Show All</option>
     <option *ngFor="#currentSpecialty of specialtyList">{{currentSpecialty}}</option>
   </select>
+  </div>
+  <div class="rest-display">
   <restaurant-display *ngFor="#currentRestaurant of restaurantList | specialty:filterSpecialty"
     (click)="restaurantClicked(currentRestaurant)"
     [selected]="currentRestaurant===selectedRestaurant"
     [restaurant]="currentRestaurant">
   </restaurant-display>
-  <create-new-specialty (onSubmitNewSpecialty)="createSpecialty($event[0])">
-  </create-new-specialty>
+  </div>
+  <div class="new-rest">
   <create-new-restaurant (onSubmitNewRestaurant)="createRestaurant($event[0],$event[1], $event[2], $event[3])" [specialtyList]=specialtyList>
   </create-new-restaurant>
-  <edit-restaurant *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant" [specialtyList]=specialtyList>
-  </edit-restaurant>
+  </div>
+  <div class="create-specialty">
+  <create-new-specialty (onSubmitNewSpecialty)="createSpecialty($event[0])">
+  </create-new-specialty>
+  </div>
+  <div class="review-rest">
   <review-list *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant">
   </review-list>
+  </div>
+  <div class="edit-rest">
+  <edit-restaurant *ngIf="selectedRestaurant" [restaurant]="selectedRestaurant" [specialtyList]=specialtyList>
+  </edit-restaurant>
   </div>
   `
 })

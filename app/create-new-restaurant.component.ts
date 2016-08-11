@@ -6,7 +6,7 @@ import { Restaurant } from './restaurant.model.ts';
   inputs: ['specialtyList'],
   outputs: ['onSubmitNewRestaurant'],
   template:`
-    <div>
+    <div class="new-restaurant">
     <h3>Upload Restaurant:</h3>
     <input placeholder="Name" class="col-sm-8 input-lg" #newName>
     <select #newSpecialty>

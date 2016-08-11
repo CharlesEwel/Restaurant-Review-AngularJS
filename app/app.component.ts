@@ -7,7 +7,10 @@ import { RestaurantListComponent } from './restaurant-list.component';
   selector: 'my-app',
   directives: [RestaurantListComponent],
   template: `
-    <h1>Restaurant Review</h1>
+    <div class="header">
+    <h1>Restaurant Reviews</h1>
+    <img src="resources/styles/images/burger.png" alt="burger">
+    </div>
     <restaurant-list [restaurantList]= "restaurants">
     </restaurant-list>
   `

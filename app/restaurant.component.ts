@@ -5,10 +5,10 @@ import { Restaurant } from './restaurant.model';
   selector: 'restaurant-display',
   inputs: ['restaurant', 'selected'],
   template: `
-  <div>
+  <div class="current-rest-list">
   <label>{{ restaurant.name }}</label>
   <label *ngIf="selected">| {{ restaurant.specialty}} | {{ restaurant.address }} | {{ restaurant.cost }}</label>
-  </div>
+  </div> 
   `
 })
 

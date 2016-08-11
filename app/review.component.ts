@@ -5,7 +5,7 @@ import { Review } from './review.model';
   selector: 'review-display',
   inputs: ['review'],
   template: `
-  <div>
+  <div class="review-display">
   <h2>Rating: {{ review.rating }} Wait Time: {{review.waitTime}}</h2>
   <p>{{review.content}}</p>
   </div>

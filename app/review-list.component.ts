@@ -11,13 +11,17 @@ import { RestaurantIdPipe } from './restaurantId.pipe';
   directives: [ReviewComponent, NewReviewComponent],
   template: `
   <h1>Reviews of {{restaurant.name}}</h1>
+  <div class="review-output">
   <h4>Average Rating: {{calculateAverageRating(restaurant)}} </h4>
   <h4>Average Wait Time: {{calculateAverageWaiting(restaurant)}} </h4>
   <review-display *ngFor="#currentReview of reviewList | restaurantId:restaurant.id"
   [review]="currentReview">
   </review-display>
+  </div>
+  <div class="new-review">
   <create-new-review (onSubmitNewReview)="createReview(restaurant.id, $event[0], $event[1], $event[2])">
   </create-new-review>
+  </div>
   `
 })
 

@@ -5,18 +5,16 @@ import {Restaurant} from './restaurant.model';
   selector: 'edit-restaurant',
   inputs: ['restaurant', 'specialtyList'],
   template: `
-    <div class="container">
-      <h3> Edit Restaurant:</h3>
-      <input [(ngModel)]="restaurant.name" class="col-sm-8 input-lg restaurant-form">
-      <h4> Edit Specialty:</h4>
-      <select class="input-lg" [(ngModel)]="restaurant.specialty">
-        <option *ngFor="#currentSpecialty of specialtyList">{{currentSpecialty}}</option>
-      </select>
-      <h4> Edit Address:</h4>
-      <input [(ngModel)]="restaurant.address" class="col-sm-8 input-lg restaurant-form">
-      <h4> Edit Price:</h4>
-      <input [(ngModel)]="restaurant.cost" class="col-sm-8 input-lg restaurant-form">
-    </div>
+    <label> Edit Restaurant:</label>
+    <input [(ngModel)]="restaurant.name" class="col-sm-8 input-lg restaurant-form"><br>
+    <label> Edit Specialty:</label>
+    <select class="input-lg" [(ngModel)]="restaurant.specialty">
+      <option *ngFor="#currentSpecialty of specialtyList">{{currentSpecialty}}</option>
+    </select><br>
+    <label> Edit Address:</label>
+    <input [(ngModel)]="restaurant.address" class="col-sm-8 input-lg restaurant-form"><br>
+    <label> Edit Price:</label>
+    <input [(ngModel)]="restaurant.cost" class="col-sm-8 input-lg restaurant-form"><br>
   `
 })
 
